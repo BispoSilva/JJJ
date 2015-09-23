@@ -14,31 +14,31 @@ import javax.ws.rs.QueryParam;
 
 import com.google.gson.Gson;
 
-import dao.BookDAO;
-import entity.Book;
+import dao.CadastroDAO;
+import entity.Cadastro;
 
 
 
-@Path("/book")
+@Path("/cadastro")
 @Produces("application/json")
-public class BookWebService {
+public class CadastroWebService {
 
 	@EJB
-	private BookDAO bookDAO;
+	private CadastroDAO cadastroDAO;
 
 	@Path("/list")
 	@GET 	
-	public String getAllBooks() throws Exception{
-		List<Book> books = bookDAO.getBooks();
+	public String getAllCadastros() throws Exception{
+		List<Cadastro> cadastros = cadastroDAO.getCadastros();
 		Gson gson = new Gson();
-		return gson.toJson(books);
+		return gson.toJson(cadastros);
 	}
 
 	@Path("/list/{id}")
 	@GET
 	@Produces("application/json")
-	public String getBook(@PathParam("id") String id){
-		Book b =  new Book("deitel",  "1", 10,  "Alta Vista",  "Java how to program");
+	public String getCadastro(@PathParam("id") String id){
+		Cadastro b =  new Cadastro("deitel",  "1", 10,  "Alta Vista",  "Java how to program");
 		Gson gson = new Gson();
 		return gson.toJson(b);
 	}
@@ -46,10 +46,10 @@ public class BookWebService {
 	@Path("/create")
 	@POST
 	@Consumes("application/json")
-	public void setBook(String json) throws Exception {
+	public void setCadastro(String json) throws Exception {
 		Gson gson = new Gson();
-		Book b =  gson.fromJson(json, Book.class);
-       bookDAO.addBook(b);
+		Cadastro b =  gson.fromJson(json, Cadastro.class);
+       cadastroDAO.addCadastro(b);
 	}
 	
 	@Path("/createform")
@@ -60,8 +60,8 @@ public class BookWebService {
 			@QueryParam("publisher") String publisher,
 			@QueryParam("title") String title)
 			throws Exception {
-		    Book b =  new Book(author, id, price, publisher, title); 
-            bookDAO.addBook(b);
+		    Cadastro b =  new Cadastro(author, id, price, publisher, title); 
+            cadastroDAO.addCadastro(b);
 	}
 	
 	

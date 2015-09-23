@@ -15,11 +15,11 @@
 <div>
 <table id="my-table" class="table table-condensed">
   <thead>
-    <th>Author</th>
+    <th>Cliente</th>
     <th>Id</th>
-    <th>Price</th>
-    <th>Publisher</th>
-    <th>Title</th>
+    <th>Telefone</th>
+    <th>Nome</th>
+    <th>Endereco</th>
   </thead>
   <tbody>
   </tbody>
@@ -28,7 +28,7 @@
 
 <script>
 $.ajax({
-  url: '/lojaUnasp/bookstore/book/list',
+  url: '/SoftMarce/cadastrostore/cadastro/list',
   success: function(data){
     $('#my-table').dynatable({
       dataset: {

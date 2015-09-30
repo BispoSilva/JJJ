@@ -19,7 +19,7 @@ public class CadastroDAO {
 	 @PersistenceContext(unitName = "movelaria")
 	    private EntityManager entityManager;
 
-	    public void addBook(Cadastro cadastro) throws Exception {
+	    public void addCadastro(Cadastro cadastro) throws Exception {
 	        entityManager.persist(cadastro);
 	    }
 

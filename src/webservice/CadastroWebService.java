@@ -38,7 +38,7 @@ public class CadastroWebService {
 	@GET
 	@Produces("application/json")
 	public String getCadastro(@PathParam("id") String id){
-		Cadastro b =  new Cadastro("deitel",  "1", 10,  "Alta Vista",  "Java how to program");
+		Cadastro b =  new Cadastro("deitel",  "1", 10,  "JJJ",  "Java how to program");
 		Gson gson = new Gson();
 		return gson.toJson(b);
 	}
@@ -54,13 +54,14 @@ public class CadastroWebService {
 	
 	@Path("/createform")
 	@GET
-	public void createBook(@QueryParam("id") String id,
-			@QueryParam("author") String author, 
-			@QueryParam("price") Float price,
-			@QueryParam("publisher") String publisher,
-			@QueryParam("title") String title)
+	public void createCadastro(@QueryParam("id") String id,
+			@QueryParam("nome") String nome, 
+			@QueryParam("telefone") Float telefone,
+			@QueryParam("email") String email,
+			@QueryParam("endereco") String endereco)
 			throws Exception {
-		    Cadastro b =  new Cadastro(author, id, price, publisher, title); 
+		    System.out.println("email" + email);
+		    Cadastro b =  new Cadastro(nome, id, telefone, email, endereco); 
             cadastroDAO.addCadastro(b);
 	}
 	

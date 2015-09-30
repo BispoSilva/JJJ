@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 
 /**
- * The persistent class for the Book database table.
+ * The persistent class for the Cadastro database table.
  * 
  */
 @Entity
@@ -13,26 +13,26 @@ import javax.persistence.*;
 public class Cadastro implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private String Cliente;
+	private String nome;
 
 	@Id
 	private String id;
 
-	private float Telefone;
+	private float telefone;
 
-	private String Nome;
+	private String email;
 
-	private String Endereco;
+	private String endereco;
 
 	public Cadastro() {
 	}
 
-	public String getCliente() {
-		return this.cliente;
+	public String getNome() {
+		return this.nome;
 	}
 
-	public void setAuthor(String cliente) {
-		this.cliente = cliente;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getId() {
@@ -51,28 +51,28 @@ public class Cadastro implements Serializable {
 		this.telefone = telefone;
 	}
 
-	public String getNome() {
-		return this.nome;
+	public String getEmail() {
+		return this.email;
 	}
 
-	public void setPublisher(String nome) {
-		this.nome = nome;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getEndereco() {
 		return this.endereco;
 	}
 
-	public void setEndereco(String endereco) {
+	public void setEndereço(String endereco) {
 		this.endereco = endereco;
 	}
 
-	public Cadastro(String cliente, String id, float telefone, String nome, String endereco) {
+	public Cadastro(String nome, String id, float telefone, String email, String endereco) {
 		super();
-		this.cliente = cliente;
+		this.nome = nome;
 		this.id = id;
 		this.telefone = telefone;
-		this.nome = nome;
+		this.email = email;
 		this.endereco = endereco;
 	}
 

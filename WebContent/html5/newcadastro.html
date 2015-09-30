@@ -2,17 +2,32 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>SoftMarce</title>
 
 <link href="../css/main.css" rel="stylesheet" media="screen">
 <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
     <script src="../js/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
     <script src="../js/jquery/jquery.serializejson.js" type="text/javascript"></script>
-
+<style type="text/css">
+body{
+   background-color:#CAFF70;
+}
+</style>
 </head>
 <body>
+<nav class="navbar navbar-default">
+        <div>                
+        <a class="navbar-brand" href="login.html"> Cadastro Store Admin</a>
+        <a class="navbar-brand" href="newbook.html"> New Cadastro</a>
+        <a class="navbar-brand" href="../books.html"> List Cadatros</a>
+        <a class="navbar-brand" href="newuser.html"> New Use</a>
+        <a class="navbar-brand" href="users.html"> List Uses</a>
+        <a class="navbar-brand" href="cart.html"> Cart</a>
+        </div>
+   </nav>
 
-<h2>Novo Moveis</h2>
+
+<h2> CadastroClientes</h2>
 
 	<form id="newcadastroform" action="../cadastrostore/cadastro/createform" method="GET">
 	    <div class="form-group">	
@@ -20,20 +35,20 @@
         <input class="form-control" type="text" name="id" id="id"/>
         </div>
         <div class="form-group">
-        <label >cliente</label>
-        <input class="form-control" type="text" name='cliente' id='cliente' />
-        </div>
-        <div class="form-group">
-        <label >endereco</label>
-        <input class="form-control" type="text" name='endereco' id='endereco'/> 
-        </div>
-        <div class="form-group">
         <label >nome</label>
         <input class="form-control" type="text" name='nome' id='nome' />
         </div>
         <div class="form-group">
         <label >telefone</label>
-        <input class="form-control" type="text" name='telefone' id='telefone' />
+        <input class="form-control" type="text" name='telefone' id='telefone'/> 
+        </div>
+        <div class="form-group">
+        <label >email</label>
+        <input class="form-control" type="text" name='email' id='email' />
+        </div>
+        <div class="form-group">
+        <label >endereco</label>
+        <input class="form-control" type="text" name='endereco' id='endereco' />
         </div>
   		<div class="form-group">
   		<button type="submit">Save</button>

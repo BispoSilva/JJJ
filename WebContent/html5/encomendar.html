@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"><title>SoftMarce</title>
+<link href="../../css/main.css" rel="stylesheet" media="screen">
+<link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+<script src="../../js/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
+<script src="../../js/jquery/jquery.serializejson.js" type="text/javascript"></script>
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+        <div>                
+        <a class="navbar-brand" href="Login.html">Login Admin</a>
+        <a class="navbar-brand" href="novocadastro.html">Cadastros</a>
+        <a class="navbar-brand" href="novoproduto.html">Produtos</a>
+        <a class="navbar-brand" href="novaencomendar.html">Encomendas</a>
+        <a class="navbar-brand" href="novoservico.html">Servicos</a>
+        <a class="navbar-brand" href="novamontagem.html">Montagem</a>
+         <a class="navbar-brand" href="novoestoque.html">Estoques</a>
+        
+        </div>
+   </nav>
+   
+<script src="../js/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
+<script src="../js/jquery/jquery.dynatable.js" type="text/javascript"></script>
+<link href="../css/jquery.dynatable.css" rel="stylesheet" media="screen">
+<link href="../css/main.css" rel="stylesheet" media="screen">
+<link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+
+<div>
+<table id="my-table" class="table table-condensed">
+  <thead>
+    <th>codigo</th>
+    <th>descricao</th>
+    <th>quantidade</th>
+    <th>valor</th>
+     </thead>
+  <tbody>
+  </tbody>
+</table>
+</div>
+
+<script>
+$.ajax({
+  url: '../cadastrostore/encomendar/list',
+  success: function(data){
+    $('#my-table').dynatable({
+      dataset: {
+        records: data
+      }
+    });
+  }
+});
+</script>
+
+
+</body>
+</html>

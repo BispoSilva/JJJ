@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SoftMarce</title>
+
+<link href="../css/main.css" rel="stylesheet" media="screen">
+<link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script src="../js/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="../js/jquery/jquery.serializejson.js" type="text/javascript"></script>
+<style type="text/css">
+body{
+   background-color:#CAFF70;
+}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+        <div>                
+        <a class="navbar-brand" href="Login.html"> Login Admin</a>
+       <a class="navbar-brand" href="novocadastro.html">Cadastros</a>
+        <a class="navbar-brand" href="cadastros.html"> Lista Cadatros</a>
+        <a class="navbar-brand" href="produtos.html">Lista Produtos</a>
+        <a class="navbar-brand" href="novaencomendar.html">Encomendas </a>
+        <a class="navbar-brand" href="encomendar.html"> Lista Encomendas</a>
+        <a class="navbar-brand" href="novoservico.html">Servicos </a>
+        <a class="navbar-brand" href="servico.html">Lista Servicos</a>
+        <a class="navbar-brand" href="novamontagem.html">Montagens </a>
+        <a class="navbar-brand" href="montagem.html">Lista Montagens</a>
+        <a class="navbar-brand" href="novoestoque.html">Estoques </a>
+        <a class="navbar-brand" href="estoque.html">Lista Estoques</a>
+        
+        </div>
+   </nav>
+
+
+<h2> Produtos</h2>
+
+	<form id="novoprodutoform" action="../cadastrostore/produtos/createform" method="GET">
+        <div class="form-group">
+        <label >descricao</label>
+        <input class="form-control" type="text" name='descricao' id='descricao' />
+        </div>
+        <div class="form-group">
+        <label >codigo</label>
+        <input class="form-control" type="text" name='codigo' id='codigo'/> 
+        </div>
+        <div class="form-group">
+        <label >marca</label>
+        <input class="form-control" type="text" name='marca' id='marca' />
+        </div>
+        <div class="form-group">
+        <label >categoria</label>
+        <input class="form-control" type="text" name='categoria' id='categoria' />
+        </div>
+        <div class="form-group">
+        <label >quatidade</label>
+        <input class="form-control" type="text" name='quatidade' id='quatidade' />
+        </div>
+        <div class="form-group">
+        <label >valor</label>
+        <input class="form-control" type="text" name='valor' id='valor' />
+        </div>
+  		<div class="form-group">
+  		<button type="submit">Save</button>
+
+  		</div>
+      </form>
+    
+</body>
+</html>

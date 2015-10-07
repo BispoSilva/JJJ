@@ -5,8 +5,11 @@
           <jta-data-source>movelariaDatabase</jta-data-source>
           <non-jta-data-source>movelariaDatabaseUnmanaged</non-jta-data-source>
           <class>entity.Cadastro</class>
-          <class>entity.Uses</class>
-          <class>entity.Pedidos</class>
+          <class>entity.Encomendar</class>
+          <class>entity.Produto</class>
+          <class>entity.Servico</class>
+          <class>entity.Montagem</class>
+          <class>entity.Estoque</class>
           <properties>
             <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
           </properties>

@@ -1,6 +1,7 @@
 package entity;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
 
 /**
@@ -8,7 +9,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@NamedQuery(name="Produto.findAll", query="SELECT j FROM Produto j")
+
 public class Produto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -16,15 +17,15 @@ public class Produto implements Serializable {
 
 	@Id 
 	@GeneratedValue(strategy=GenerationType.AUTO) 
-	private long id;
+	private Long id;
 
-	private int codigo;
+	private float codigo;
 
 	private String marca;
 
 	private String categoria;
 	
-	private int quantidade;
+	private float quantidade;
 	
 	private float valor;
 
@@ -49,11 +50,11 @@ public class Produto implements Serializable {
 		this.id = id;
 	}
 
-	public int getCodigo() {
+	public float getCodigo() {
 		return this.codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(float codigo) {
 		this.codigo = codigo;
 	}
 
@@ -72,11 +73,11 @@ public class Produto implements Serializable {
 		this.categoria = categoria;
 	}
 
-	public int getQuantidade() {
+	public float getQuantidade() {
 		return this.quantidade;
 	}
 
-	public void setQuantidade(int quantidade) {
+	public void setQuantidade(float quantidade) {
 		this.quantidade = quantidade;
 	}
 
@@ -88,7 +89,7 @@ public class Produto implements Serializable {
 		this.valor = valor;
 	}
 
-	public Produto(String descricao, int codigo, String marca, String categoria, int quantidade, float valor) {
+	public Produto(String descricao, float codigo, String marca, String categoria, float quantidade, float valor) {
 		super();
 		this.descricao = descricao;
 		this.codigo = codigo;

@@ -10,7 +10,8 @@
 <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
 <style type="text/css">
 body{
-   background-color:#D2B48C;
+   background-image: url("../img/madeira.jpg");
+    font-family: Tahoma, Geneva, sans-serif;
 }
 </style>
 
@@ -19,7 +20,7 @@ body{
 <body>
 <nav class="navbar navbar-default">
         <div>                
-        <a class="navbar-brand" href="Login.html">Login Admin</a>
+        <a class="navbar-brand" href="home.html">Home</a>
         <a class="navbar-brand" href="novocadastro.html">Cadastros</a>
         <a class="navbar-brand" href="novoproduto.html">Produtos</a>
         <a class="navbar-brand" href="novaencomendar.html">Encomendas</a>
@@ -33,6 +34,7 @@ body{
   <thead>
   <tr>
     <th>descricao</th>
+    <th>id</th>
     <th>codigo</th>
     <th>marca</th>
     <th>categoria</th>
@@ -47,7 +49,7 @@ body{
 
 <script>
 $.ajax({
-  url: '../cadastrostore/produto/list',
+  url: '/SoftMarce/cadastrostore/produto/list',
   success: function(data){
     $('#my-table').dynatable({
       dataset: {

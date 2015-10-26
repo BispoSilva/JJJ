@@ -10,7 +10,8 @@
 <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
 <style type="text/css">
 body{
-   background-color:#D2B48C;
+   background-image: url("../img/madeira.jpg");
+    font-family: Tahoma, Geneva, sans-serif;
 }
 </style>
 
@@ -19,7 +20,7 @@ body{
 <body>
 <nav class="navbar navbar-default">
         <div>                
-        <a class="navbar-brand" href="Login.html">Login Admin</a>
+        <a class="navbar-brand" href="home.html">Home</a>
         <a class="navbar-brand" href="novocadastro.html">Cadastros</a>
         <a class="navbar-brand" href="novoproduto.html">Produtos</a>
         <a class="navbar-brand" href="novaencomendar.html">Encomendas</a>
@@ -29,12 +30,14 @@ body{
         </div>
    </nav>
 <div>
+              <h1>LISTA CLIENTES</h1>
+			
 <table id="my-table" class="table table-condensed">
   <thead>
-  <tr>
-    <th>id</th>
+  
+			<tr>
     <th>nome</th>
-    <th>registro</th>
+    <th>id</th>
     <th>endereco</th>
     <th>bairro</th>
     <th>cidade</th>
@@ -43,16 +46,27 @@ body{
     <th>telefone</th>
     <th>email</th>
     <th>observacoes</th>
-  </tr>
-  </thead>
+  </tr>		
+				
+			
+				
+		</thead>		
+			
+		
+  
   <tbody>
   </tbody>
 </table>
+</br>
+</br>
+<input type="submit" value="Salvar">
+		<input type="submit" value="Sair">
+	
 </div>
 
 <script>
 $.ajax({
-  url: '../cadastrostore/cadastro/list',
+  url: '/SoftMarce/cadastrostore/cadastro/list',
   success: function(data){
     $('#my-table').dynatable({
       dataset: {

@@ -16,7 +16,9 @@ package webservice;
 	import com.google.gson.Gson;
 
 	import dao.EstoqueDAO;
+	
 	import entity.Estoque;
+
 
 	@Path("/estoque")
 	@Produces("application/json")
@@ -33,15 +35,13 @@ package webservice;
 			return gson.toJson(estoques);
 		}
 
-		@Path("/list/{codigo}")
+		@Path("/list/{id}")
 		@GET
-		@Produces("application/json")
-		public String getEstoque(@PathParam("codigo") Float codigo){
-			Estoque b =  new Estoque("estante", 4,  "tt",  "Java how to program", 2, 2);
+		public String getEstoque(@PathParam("id") String id) throws Exception{
+			Estoque b =  estoqueDAO.findEstoque(Long.parseLong(id));
 			Gson gson = new Gson();
 			return gson.toJson(b);
 		}
-		
 		@Path("/create")
 		@POST
 		@Consumes("application/json")
@@ -53,17 +53,18 @@ package webservice;
 		
 		@Path("/createform")
 		@GET
-		public void createEstoque(
-				@QueryParam("codigo") Float codigo,
+		public void createProduto(@QueryParam("id") String id,
 				@QueryParam("descricao") String descricao,
-		        @QueryParam("quantidade") Float quantidade,
-	            @QueryParam("data") Float data)
+				@QueryParam("codigo") float codigo,
+				@QueryParam("marca") String marca,
+				@QueryParam("categoria") String categoria,
+		        @QueryParam("quantidade") float quantidade,
+		        @QueryParam("data") float data,
+	            @QueryParam("valor") float valor)
 				throws Exception {
-			    System.out.println("data" + data);
-			    Estoque b =  new Estoque( codigo, descricao, quantidade, data); 
-			    estoqueDAO.addEstoque(b);
+			    Estoque b =  new Estoque(descricao, codigo, marca, categoria, quantidade, data, valor); 
+	            estoqueDAO.addEstoque(b);
 		}
-		
 		
 
 

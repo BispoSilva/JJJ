@@ -1,38 +1,42 @@
 package entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
 
-
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 /**
  * The persistent class for the Cadastro database table.
  * 
  */
 @Entity
-@NamedQuery(name="Cadastro.findAll", query="SELECT a FROM Cadastro a")
+@NamedQuery(name="Cadastro.findAll", query="SELECT a FROM Cadastro u")
 public class Cadastro implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private Encomendar encomendar;
+	@Id
+	private String email;
 	private String nome;
-
-	@Id 
-	@GeneratedValue(strategy=GenerationType.AUTO) 
-	private long id;
-	private float registro;
 	private String endereco;
 	private String bairro;
 	private String cidade;
 	private String uf;
-	private float cep;
-	private float telefone;
-	private String email;
+	private String cep;
+	private String telefone;
 	private String observacoes;
+	
 
 	public Cadastro() {
 	}
 
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getNome() {
 		return this.nome;
 	}
@@ -40,22 +44,7 @@ public class Cadastro implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public long getId() {
-		return this.id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 	
-	public float getRegistro() {
-		return this.registro;
-	}
-
-	public void setRegistro(float registro) {
-		this.registro = registro;
-	}
 	public String getEndereco() {
 		return this.endereco;
 	}
@@ -88,29 +77,21 @@ public class Cadastro implements Serializable {
 		this.uf = uf;
 	}
 	
-	public float getCep() {
+	public String getCep() {
 		return this.cep;
 	}
 
-	public void setCep(float cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
 	
-	public float getTelefone() {
+	public String getTelefone() {
 		return this.telefone;
 	}
 
-	public void setTelefone(float telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	public String getEmail() {
-		return this.email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getObservacoes() {
 		return this.observacoes;
 	}
@@ -118,30 +99,27 @@ public class Cadastro implements Serializable {
 	public void setObservacoes(String observacoes) {
 		this.observacoes = observacoes;
 	}
+	
 
 	
-	public Cadastro(String nome, float registro, String endereco, String bairro, String cidade, String uf, float cep, float telefone, String email, String observacoes) {
+
+	
+	public Cadastro( String email,String nome, String endereco, String bairro, String cidade, String uf, String cep, String telefone, String observacoes) {
 		super();
+		this.email = email;
 		this.nome = nome;
-		this.registro = registro;
 		this.endereco = endereco;
 		this.bairro = bairro;
 		this.cidade = cidade;
 		this.uf = uf;
 		this.cep = cep;
 		this.telefone = telefone;
-		this.email = email;
 		this.observacoes = observacoes;
+
+		
 	}
 	
-	public Encomendar getEncomendar() {
-		return encomendar;
-	}
-
-	public void setEncomendar(Encomendar encomendar) {
-		this.encomendar = encomendar;
-	}
-
+	
 	
 
 	

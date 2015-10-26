@@ -1,9 +1,8 @@
 package entity;
 
 
-
-
 	import java.io.Serializable;
+	
 	import javax.persistence.*;
 
 	/**
@@ -15,7 +14,7 @@ package entity;
 	public class Estoque implements Serializable {
 		private static final long serialVersionUID = 1L;
 		
-		private float codigo;
+		private String descricao;
 		
 
 		@Id 
@@ -23,12 +22,17 @@ package entity;
 		private long id;
 
 		
-		private String descricao;
+		private float codigo;
+		
+		private String marca;
 
+		private String categoria;
 		
 		private float quantidade;
 		
 		private float data;
+		
+		private float valor;
 
 
 
@@ -58,6 +62,21 @@ package entity;
 		public void setCodigo(float codigo) {
 			this.codigo = codigo;
 		}
+		
+		public String getMarca() {
+			return this.marca;
+		}
+
+		public void setMarca(String marca) {
+			this.marca = marca;
+		}
+		public String getCategoria() {
+			return this.categoria;
+		}
+
+		public void setCategoria(String categoria) {
+			this.categoria = categoria;
+		}
 
 		
 		public float getQuantidade() {
@@ -75,18 +94,26 @@ package entity;
 		public void setData(float data) {
 			this.data = data;
 		}
+		public float getValor() {
+			return this.valor;
+		}
 
-		public Estoque(String descricao, float codigo, String string, String string2, float quantidade, float data) {
+		public void setValor(float valor) {
+			this.valor = valor;
+		}
+		
+
+		public Estoque(String descricao, float codigo, String marca, String categoria, float quantidade, float data, float valor) {
 			super();
 			this.descricao = descricao;
 			this.codigo = codigo;
+			this.marca = marca;
+			this.categoria = categoria;
 			this.quantidade = quantidade;
 			this.data = data;
 		}
 
-		public Estoque(Float codigo2, String descricao2, Float quantidade2, Float data2) {
-			// TODO Auto-generated constructor stub
-		}
+		
 
 		
 }

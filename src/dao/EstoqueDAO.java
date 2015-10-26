@@ -1,41 +1,59 @@
 package dao;
 
 
-	import java.util.List;
+import java.util.LinkedList;
+import java.util.List;
 
-	import javax.ejb.Stateless;
-	import javax.persistence.EntityManager;
-	import javax.persistence.PersistenceContext;
-	import javax.persistence.criteria.CriteriaQuery;
+import javax.ejb.Stateful;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
+import javax.persistence.PersistenceUnit;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.*;
 
-	import entity.Estoque;
 
-	@Stateless
-	public class EstoqueDAO {
+import entity.Estoque;
 
-		@PersistenceContext(unitName = "movelaria")
-	    private EntityManager entityManager;
+@Stateful
+public class EstoqueDAO {
 
-	    public void addEstoque(Estoque estoque) throws Exception {
-	    	try {
-	    		entityManager.persist(estoque);
-	    	}
-	    	catch(Exception e){
-	    		e.printStackTrace();
-	    	}
+	@PersistenceContext(unitName = "movelaria")
+	 EntityManager entityManager;
+
+	 public EstoqueDAO(){
+	 }
+	 
+	 public Estoque findEstoque(Long id) throws Exception {
+	           return entityManager.find(Estoque.class, id);
+	  }
+	 
+	 public List<Estoque> cloneEstoques(List<Estoque> estoques) throws Exception {
+		 List<Estoque> temp = new LinkedList<Estoque>();
+		 
+		 for(Estoque b: estoques) {
+	
+			 Estoque b1 = this.findEstoque(b.getId());
+			temp.add(b1);
+		 }
+		 return temp;
+}
+	 public void addEstoque(Estoque estoque) throws Exception {
+	        entityManager.merge(estoque);
 	    }
 
-	    public void deleteEncomendar(Estoque estoque) throws Exception {
+	    public void deleteEstoque(Estoque estoque) throws Exception {
 	        entityManager.remove(estoque);
 	    }
 
+	    
 	    public List<Estoque> getEstoques() throws Exception {
-
-	        CriteriaQuery<Estoque> cq = entityManager.getCriteriaBuilder().createQuery(Estoque.class);
-	        cq.select(cq.from(Estoque.class));
-	        return entityManager.createQuery(cq).getResultList();
+	    	System.out.print(entityManager == null);
+         CriteriaQuery<Estoque> cq = entityManager.getCriteriaBuilder().createQuery(Estoque.class);
+         cq.select(cq.from(Estoque.class));
+         return entityManager.createQuery(cq).getResultList();
 	    }
-
-		
-
 }

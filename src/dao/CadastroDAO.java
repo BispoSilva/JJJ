@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaQuery;
 
+import entity.Produto;
 import entity.Cadastro;
 
 @Stateless
@@ -16,7 +17,7 @@ public class CadastroDAO {
 	    private EntityManager entityManager;
 
 	    public void addCadastro(Cadastro cadastro) throws Exception {
-	        entityManager.persist(cadastro);
+	        entityManager.merge(cadastro);
 	    }
 
 	    public void deleteMovie(Cadastro cadastro) throws Exception {

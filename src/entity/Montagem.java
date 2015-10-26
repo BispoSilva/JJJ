@@ -74,7 +74,7 @@ package entity;
 			this.data = data;
 		}
 
-		public Montagem(String descricao, float codigo, String string, String string2, float quantidade, float data) {
+		public Montagem(String descricao, float codigo, float quantidade, float data) {
 			super();
 			this.descricao = descricao;
 			this.codigo = codigo;
@@ -82,9 +82,7 @@ package entity;
 			this.data = data;
 		}
 
-		public Montagem(Float codigo2, String descricao2, Float quantidade2, Float data2) {
-			// TODO Auto-generated constructor stub
-		}
+		
 
 		
 

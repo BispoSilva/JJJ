@@ -1,6 +1,6 @@
 package webservice;
 
-
+    import java.util.LinkedList;
 	import java.util.List;
 
 	import javax.ejb.EJB;
@@ -15,7 +15,10 @@ package webservice;
 	import com.google.gson.Gson;
 
 	import dao.MontagemDAO;
+	
 	import entity.Montagem;
+
+
 
 	@Path("/montagem")
 	@Produces("application/json")
@@ -31,15 +34,15 @@ package webservice;
 			Gson gson = new Gson();
 			return gson.toJson(montagems);
 		}
-
-		@Path("/list/{descricao}")
+		@Path("/list/{id}")
 		@GET
-		@Produces("application/json")
-		public String getMontagem(@PathParam("descricao") String descricao){
-			Montagem b =  new Montagem("mesa", 2,  "J",  "Java how to program", 1, 1);
+		public String getMontagem(@PathParam("id") String id) throws Exception{
+			Montagem b =  montagemDAO.findMontagem(Long.parseLong(id));
 			Gson gson = new Gson();
 			return gson.toJson(b);
 		}
+
+		
 		
 		@Path("/create")
 		@POST
@@ -52,17 +55,15 @@ package webservice;
 		
 		@Path("/createform")
 		@GET
-		public void createMontagem(
-				@QueryParam("codigo") Float codigo,
+		public void createMontagem(@QueryParam("id") String id,
 				@QueryParam("descricao") String descricao,
-		        @QueryParam("quantidade") Float quantidade,
-	            @QueryParam("data") Float data)
+				@QueryParam("codigo") float codigo,
+		        @QueryParam("quantidade") float quantidade,
+	            @QueryParam("valor") float valor)
 				throws Exception {
-			    System.out.println("data" + data);
-			    Montagem b =  new Montagem( codigo, descricao, quantidade, data); 
-			    montagemDAO.addMontagem(b);
+			    Montagem b =  new Montagem(descricao, codigo, quantidade, valor); 
+	            montagemDAO.addMontagem(b);
 		}
-		
 		
 
 

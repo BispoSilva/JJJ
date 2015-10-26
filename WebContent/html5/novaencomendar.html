@@ -8,16 +8,58 @@
 <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
 <script src="../../js/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
 <script src="../js/jquery/jquery.serializejson.js" type="text/javascript"></script>
+<style type="text/css">
+body {
+	background-image: url("../img/madeira1.jpg");
+    font-family: Tahoma, Geneva, sans-serif;
+}
+.Soft {
+    float: center;
+    margin: 0 0 0 45%;
+    width:187px;
+    border-radius: 5px;
+    background-color: #6B4724;
+    
+   }
+   .Soft h1{
+   
+      color:white;
+   
+   }
 
+.top {
+    float: center;
+    margin: 30px 5% 0 5%;
+    padding: -10px;
+    width:500px;
+    border-radius: 10px;
+	background-color: #6B4724;
+}
+ .top h1{
+   
+      color:white;
+   
+   }
+   
+   
+.center {
+    float: center;
+    margin: 0 5% 0 5%;
+    width: 1000px;
+    border-radius: 10px;
+    padding: 100px;
+    background-color: #ffffff;
+}
+</style>
 </head>
 <body>
 
 <nav class="navbar navbar-default">
         <div>                
-        <a class="navbar-brand" href="Login.html"> Cadastro Salvo</a>
+        <a class="navbar-brand" href="home.html"> HOME</a>
         <a class="navbar-brand" href="encomendar.html"> Lista Encomendas</a>
         <a class="navbar-brand" href="novocadastro.html">Cadastros</a>
-        <a class="navbar-brand" href="cadastros.html"> Lista Cadastros</a>
+        <a class="navbar-brand" href="cadastro.html"> Lista Cadastros</a>
         <a class="navbar-brand" href="novoproduto.html">Produtos</a>
         <a class="navbar-brand" href="produtos.html">Lista Produtos</a>
         <a class="navbar-brand" href="novoservico.html">Servicos </a>
@@ -29,30 +71,65 @@
         </div>
 </nav>
 
-<h2> Encomendas</h2>
+
 
 	<form id="novaencomendarform" action="../cadastrostore/encomendar/createform" method="GET">
-	    <div class="form-group">	
-        <label >codigo</label>
-        <input class="form-control" type="text" name="codigo" id="codigo"/>
-        </div>
-        <div class="form-group">
-        <label >descricao</label>
-        <input class="form-control" type="text" name='descricao' id='descricao' />
-        </div>
-        <div class="form-group">
-        <label>quantidade</label>
-        <input class="form-control" type="text" name='quantidade' id='quantidade'/> 
-        </div>
-        <div class="form-group">
-        <label>valor</label>
-        <input class="form-control" type="text" name='valor' id='valor'/> 
-        </div>
-         <div class="form-group">
-  		<button type="submit">Save</button>
-
-  		</div>
+	    <table class="top">
+			<tr>
+				<td>
+					<h1>CADASTRO DE ENCOMENDAS</h1>
+				</td>
+			</tr>
+		</table>
+		<div class="center"> 
+				<table>
+				
+				<tr>
+					<td><h4>
+					Descricao:</h4>
+					<input type="text" name="descricao">
+					</td>
+			
+				</tr>
+				<tr>
+				
+					<td><h4>
+					Codigo:</h4>
+					<input type="text" name="codigo">
+					</td>
+				</tr>
+				
+					<td><h4>Marca:</h4>
+					<input type="text" name="marca">
+				    </td>
+				
+					<td><h4>Categoria:</h4>
+					<input type="text" name="categoria">
+					</td>
+					
+					<td><h4>Quantidade:</h4>
+					<input type="number" name="quantidade">
+					</td>
+					
+				<tr></tr>
+				<tr></tr>
+					
+				    <td><h4>Valor:</h4>
+					<input type="number" name="valor">
+					
+				
+				
+					
+					</br>
+					</br>
+					
+					<input type="submit" value="Salvar">
+		            <input type="submit" value="Sair"></td>
+	                
+	  </table>
+      </div>
       </form>
+    
     
 </body>
 </html>

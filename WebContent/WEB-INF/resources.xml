@@ -1,7 +1,9 @@
 <resources>
 <Resource id="TestDS" type="DataSource">
     JdbcDriver  com.mysql.jdbc.Driver
-    JdbcUrl jdbc:mysql://localhost/Cadastros
+    JdbcUrl jdbc:mysql://localhost/SoftMarce
    UserName    root
+   Password    
+    JtaManaged  true
 </Resource>
 </resources>
